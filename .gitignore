@@ -1,0 +1,8 @@
+vpc/.terraform*
+vpc/terraform.tfstate*
+
+cluster/.terraform*
+cluster/terraform.tfstate*
+
+argocd/.terraform*
+argocd/terraform.tfstate*
