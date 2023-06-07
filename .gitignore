@@ -1,6 +1,3 @@
-vpc/.terraform*
-vpc/terraform.tfstate*
-
 cluster/.terraform*
 cluster/terraform.tfstate*
 

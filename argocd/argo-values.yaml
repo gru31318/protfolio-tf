@@ -1,0 +1,12 @@
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts: ["argocd.me"]
+    paths: ["/"]
+
+configs:
+  params:
+    server.insecure: true
+  secret:
+    argocdServerAdminPassword: $2a$10$aaXHng.wih6Z1uUex1P.s.dkNH1BNRj9Cq73MVDvbV.hdCMJwjPpe
