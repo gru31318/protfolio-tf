@@ -1,5 +1,2 @@
-cluster/.terraform*
-cluster/terraform.tfstate*
-
-argocd/.terraform*
-argocd/terraform.tfstate*
+.terraform*
+terraform.tfstate*

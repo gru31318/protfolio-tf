@@ -23,6 +23,11 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
 
   role = aws_iam_role.eks_cluster.name
 }
+resource "aws_iam_role_policy_attachment" "eks_vpc_policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+
+  role = aws_iam_role.eks_cluster.name
+}
 
 # node group roles
 resource "aws_iam_role" "nodes_general_role" {
@@ -56,6 +61,11 @@ resource "aws_iam_role_policy_attachment" "cni_nodes_policy" {
 }
 resource "aws_iam_role_policy_attachment" "ecr_nodes_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+
+  role = aws_iam_role.nodes_general_role.name
+}
+resource "aws_iam_role_policy_attachment" "ec2_nodes_policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 
   role = aws_iam_role.nodes_general_role.name
 }
