@@ -11,8 +11,12 @@ module "cluster" {
   source     = "./modules/cluster"
   depends_on = [module.vpc]
 
-  prefix     = var.prefix
-  subnet_ids = module.vpc.subnet_ids
+  prefix          = var.prefix
+  subnet_ids      = module.vpc.subnet_ids
+  cluster_version = var.cluster_version
+  ami_type        = var.ami_type
+  disk_size       = var.disk_size
+  instance_types  = var.instance_types
 }
 
 module "argocd" {

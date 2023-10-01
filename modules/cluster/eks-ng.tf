@@ -9,25 +9,25 @@ resource "aws_eks_node_group" "nodes_general" {
 
   scaling_config {
     desired_size = 3
-    max_size     = 3
+    max_size     = 4
     min_size     = 1
   }
 
-  ami_type = "AL2_x86_64"
+  ami_type = var.ami_type
 
   capacity_type = "ON_DEMAND"
 
-  disk_size = 10
+  disk_size = var.disk_size
 
   force_update_version = false
 
-  instance_types = ["t3a.large"]
+  instance_types = var.instance_types
 
   labels = {
     role = "nodes-general-role"
   }
 
-  version = "1.27"
+  version = var.cluster_version
 
   tags = {
     Name = "dressifyWorker"
@@ -38,6 +38,4 @@ resource "aws_eks_node_group" "nodes_general" {
     aws_iam_role_policy_attachment.cni_nodes_policy,
     aws_iam_role_policy_attachment.ecr_nodes_policy
   ]
-
-
 }
